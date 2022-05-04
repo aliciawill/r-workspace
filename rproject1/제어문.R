@@ -121,7 +121,24 @@ df
 df3 <- table(df$names3)
 df3
 
-barplot(df3, main='count per names')
+barplot(df3, main='count per names', 
+        col=c('blue', 'red', 'orange', 'green'),
+        xlab = 'names',
+        ylab = 'count'
+        )
+barplot(df3, main='count per names', 
+        col=c('blue', 'red', 'orange', 'green'),
+        xlab = 'names',
+        ylab = 'count',
+        horiz = TRUE
+        )
+
+class(df$total)
+
+pie(df3, main = 'count per names', col=topo.colors(4), radius = 1)
+pie(df3, main = 'count per names', col=topo.colors(10) , radius = 1.2)
+pie(df3, main = 'count per names', col=rainbow(10) , radius = 1.2)
+
 
 library(ggplot2)
 ggplot(df, aes(x = names3, y = values)) + geom_bin2d()
