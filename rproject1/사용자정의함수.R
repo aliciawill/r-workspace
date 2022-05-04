@@ -122,7 +122,7 @@ proper.weight <- function(w, h){
   return(list(r = rates, prow = pro.w))
 }
 
-input.result = input.fun()
+input.result <- input.fun()
 print(input.result)
 # $n
 # [1] "hong"
