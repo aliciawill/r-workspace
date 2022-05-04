@@ -134,7 +134,10 @@ max(df$values)
 table(df$names3)
 median(df$values)
 
-write.csv(df, 'df_file.csv0', fileEncoding = 'utf8')
+write.csv(df, 'df_file.csv', fileEncoding = 'utf8')
+
+df_load = read.csv('df_file.csv')
+df_load
 ## 5명의 정보를 데이터프레임에 넣어, 
 ## 그래프로 그려주세요.
 ## 이름, 나이, 컴퓨터점수, 영어점수
@@ -150,6 +153,8 @@ write.csv(df, 'df_file.csv0', fileEncoding = 'utf8')
 ## total이 150점 이상이면 우수, 100점 이상이면 보통, 아니면 미달의
 ## 값이 들어가는 result컬럼을 추가.
 ## 최종 df의 내용과 행과 열의 개수 프린트
+## 최종 만들어진 df를 csv(df_csv.csv)로 저장
+## 저장된 csv를 읽어와서 프린트
 
 df$total <- df$values + 1
 df
