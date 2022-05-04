@@ -78,8 +78,19 @@ mysum.minus <- function(x, y){
 
 result1 <- mysum.minus(888, 111)
 print(result1)
+# $s
+# [1] 999
+# 
+# $m
+# [1] 777
+
 cat('두 수의 더한값은 ', result1$s)
 cat('두 수의 뺀 값은 ', result1$m)
+
+
+library(ggplot2)
+
+ggplot(data = iris, aes(x = Petal.Length, y = Petal.Width)) + geom_point()
 
 # class(result1)
 # [1] "list"
