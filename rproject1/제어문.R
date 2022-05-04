@@ -134,6 +134,7 @@ max(df$values)
 table(df$names3)
 median(df$values)
 
+write.csv(df, 'df_file.csv0', fileEncoding = 'utf8')
 ## 5명의 정보를 데이터프레임에 넣어, 
 ## 그래프로 그려주세요.
 ## 이름, 나이, 컴퓨터점수, 영어점수
