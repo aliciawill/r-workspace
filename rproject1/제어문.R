@@ -95,9 +95,31 @@ df[c(1,3,5), c(1,3)]
 df2 <- subset(df, result3 =='even')
 print(df2)
 # df에서 values가 50이상 프린트 
+subset(df, values >= 50)
 # df에서 values가 50미만이면서 
 # result3가 even인 것을 찾아서 df3에 저장 
+result3 <- subset(df, values < 50 & result3 == 'even' )
+print(result3)
 
+df
+df.names3 <- df$names3 ###!!!
+str(df.names3)
+df.names33 <- df['names3']
+typeof(df.names33)
+str(df.names33)
+mode(df.names3)
+table(df$names3)
 
+df
+df[1,1] <- 'kim'
+df
+df[6,1] <- 'song'
+df[7,1] <- 'park'
+df[8,1] <- 'kim'
+df
 
+df3 <- table(df$names3)
+df3
 
+library(ggplot2)
+ggplot(df, aes(x = names3, y = values)) + geom_point()
