@@ -128,6 +128,11 @@ ggplot(df, aes(x = names3, y = values)) + geom_boxplot()
 ggplot(df, aes(x = names3, y = values)) + geom_col()
 ggplot(df, aes(x = names3, y = values)) + geom_count()
 
+mean(df$values)
+sum(df$values)
+max(df$values)
+table(df$names3)
+median(df$values)
 
 ## 5명의 정보를 데이터프레임에 넣어, 
 ## 그래프로 그려주세요.
