@@ -105,6 +105,7 @@ ggplot(data = iris, aes(x = Petal.Length, y = Petal.Width)) + geom_point()
 ## 초과(또는 미달)입니다.
 ## 적정 몸무게 = (신장 - 100) × 0.9
 
+## 입력용 함수 
 input.fun <- function(){
   name <-  dlgInput('your name>> ')$res
   height <-  dlgInput('your height>> ')$res
@@ -114,6 +115,7 @@ input.fun <- function(){
   return(list(n = name, h = height2, w = weight2))
 }
 
+## 적정몸무게구하는 함수 
 proper.weight <- function(w, h){
   rates = 0.9
   pro.w <- (h - w) *  rates
