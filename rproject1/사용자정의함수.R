@@ -105,7 +105,52 @@ ggplot(data = iris, aes(x = Petal.Length, y = Petal.Width)) + geom_point()
 ## 초과(또는 미달)입니다.
 ## 적정 몸무게 = (신장 - 100) × 0.9
 
+input.fun <- function(){
+  name <-  dlgInput('your name>> ')$res
+  height <-  dlgInput('your height>> ')$res
+  weight <-  dlgInput('your weight>> ')$res
+  height2 <- as.numeric(height)
+  weight2 <- as.numeric(weight)
+  return(list(n = name, h = height2, w = weight2))
+}
 
+proper.weight <- function(w, h){
+  rates = 0.9
+  pro.w <- (h - w) *  rates
+  return(list(r = rates, prow = pro.w))
+}
 
+input.result = input.fun()
+print(input.result)
+# $n
+# [1] "hong"
+# 
+# $h
+# [1] 170
+# 
+# $w
+# [1] 88
 
+name2 <- input.result$n
+height2 <- input.result$h
+weight2 <- input.result$w
+cat('name>', name2, ', height>', height2, ', weight>', weight2)
+# name> hong , height> 170 , weight> 88
+
+pro.result <- proper.weight(weight2, height2)
+print(pro.result)
+# $r
+# [1] 0.9
+# 
+# $prow
+# [1] 73.8
+rates2 = pro.result$r
+pro.weight = pro.result$prow
+cat('rates2>', rates2, ', pro.weight>', pro.weight)
+
+if(pro.weight > weight2){
+  cat(name2, '의 몸부게는', rates2, '의 비율로 미달입니다.' )
+}else{
+  cat(name2, '의 몸부게는', rates2, '의 비율로 초과입니다.' )
+}
 
