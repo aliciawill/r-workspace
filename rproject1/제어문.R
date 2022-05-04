@@ -122,7 +122,12 @@ df3 <- table(df$names3)
 df3
 
 library(ggplot2)
+ggplot(df, aes(x = names3, y = values)) + geom_bin2d()
 ggplot(df, aes(x = names3, y = values)) + geom_point()
+ggplot(df, aes(x = names3, y = values)) + geom_boxplot()
+ggplot(df, aes(x = names3, y = values)) + geom_col()
+ggplot(df, aes(x = names3, y = values)) + geom_count()
+
 
 ## 5명의 정보를 데이터프레임에 넣어, 
 ## 그래프로 그려주세요.
