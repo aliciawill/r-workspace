@@ -37,9 +37,19 @@ sum1 <- mysum(1000)
 cat('100을 더한 결과는 ', sum1)
 
 ## 두 수를 더해서 결과값을 받아오는 함수를 정의
+mysum2 <- function(x, y){
+  result = x + y
+  return(result)
+}
 ## 200, 300 => 더한 결과값 출력(1) 
+sum2 <- mysum2(200, 300)
+print(sum2)
 ## 5555, 3333 => 더한 결과값 출력(2)
+sum3 <- mysum2(5555, 3333)
+print(sum3)
 ## 1과 2번을 더해서 다시 출력(3)
+sum4 <- mysum2(sum2, sum3)
+print(sum4)
 
 install.packages('svDialogs')
 library(svDialogs) # import!역할 
@@ -49,8 +59,30 @@ data.2 <-  dlgInput('숫자2입력 ')$res
 n1 <- as.numeric(data.1)
 n2 <- as.numeric(data.2)
 print(n1 + n2) ##위에서 만들었던 함수를 적용해서 구해보세요.
+print(mysum2(n1, n2))
+print(mysum2(x = n1, y = n2))
 
+mysum3 <- function(x, y=1000){ #default값!
+        #함수를 호출할 때 넣지 않으면, default값을 사용
+  result = x + y
+  return(result)
+}
+print(mysum3(555,666))
+print(mysum3(555))
 
+mysum.minus <- function(x, y){
+  s1 <- x + y
+  m1 <- x - y
+  return(list(s = s1, m = m1))
+}
+
+result1 <- mysum.minus(888, 111)
+print(result1)
+cat('두 수의 더한값은 ', result1$s)
+cat('두 수의 뺀 값은 ', result1$m)
+
+# class(result1)
+# [1] "list"
 
 
 
