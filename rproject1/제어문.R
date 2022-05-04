@@ -121,6 +121,8 @@ df
 df3 <- table(df$names3)
 df3
 
+barplot(df3, main='count per names')
+
 library(ggplot2)
 ggplot(df, aes(x = names3, y = values)) + geom_bin2d()
 ggplot(df, aes(x = names3, y = values)) + geom_point()
