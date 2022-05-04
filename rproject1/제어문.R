@@ -153,6 +153,7 @@ max(df$values)
 table(df$names3)
 median(df$values)
 
+## ppt 331~
 write.csv(df, 'df_file.csv', fileEncoding = 'utf8')
 
 df_load = read.csv('df_file.csv')
@@ -177,6 +178,21 @@ df_load
 
 df$total <- df$values + 1
 df
+
+install.packages('carData')
+library(carData)
+ds <- Chile
+colors <- rainbow(20) 
+par(mfrow = c(2,3))
+barplot(table(ds$region), main = 'regional', col=colors[1:5])
+barplot(table(ds$sex), main = 'gender', , col=colors[6:7])
+barplot(table(ds$education), main = 'educational', col=colors[8:10])
+hist(ds$age, breaks = 6, main = 'age', xlab = 'age', col=colors[1:6])
+hist(ds$income, breaks = 4, main = 'income', xlab = 'income',
+     col=colors[11:14])
+hist(ds$statusquo, breaks = 9, main = 'support', xlab = 'support',
+     col=colors[15:20])
+
 
 
 
