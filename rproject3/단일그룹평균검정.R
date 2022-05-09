@@ -65,3 +65,50 @@ t.test(time2, mu=5.2, alternative = 'greater', conf.level = 0.95)
 ## => A회사의 노트북 사용시간이 한국의 노트북 사용시간보다 크다.
 
 
+### 문제
+student_height <- read.csv("~/Documents/r-workspace/csv/student_height.csv")
+View(student_height)
+
+korea.woman.height <-  148.5
+our.height <- student_height$height
+
+length(our.height)
+summary(our.height)
+print(our.height)
+mean(our.height)
+
+hist(our.height)
+
+## 정규성 검정
+shapiro.test(our.height)
+# Shapiro-Wilk normality test
+# 
+# data:  our.height
+# W = 0.88711, p-value = 0.0001853
+# => 정규성을 따르지 않음.
+# => 비모수 검정
+
+wilcox.test(our.height, mu=korea.woman.height, alternative = 'two.side', conf.int = 0.95 )
+# Wilcoxon signed rank test
+# with continuity correction
+# 
+# data:  our.height
+# V = 826, p-value = 0.067
+# alternative hypothesis: true location is not equal to 148.5
+# 95 percent confidence interval:
+#   148.5000 150.0001
+# sample estimates:
+#   (pseudo)median 
+# 149.5 
+# 대립가설 : 차이가 있다. <--> 영가설 : 차이가 없다.
+# 대립가설 기각, 영가설이 채택(차이가 없다.)
+
+
+
+
+
+
+
+
+
+
