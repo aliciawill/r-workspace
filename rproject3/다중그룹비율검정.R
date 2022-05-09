@@ -61,3 +61,73 @@ prop.test(c(110, 135), c(150, 150), alternative = 'less', conf.level = 0.95)
 # => pt교육이 코딩교육보다 만족도가 적다.
 
 
+#### 문제
+table(two_sample$gender, two_sample$survey, useNA = 'ifany')
+# 0   1
+# 1  36 138
+# 2  19 107
+
+prop.test(c(138, 107), c(174, 126), alternative = 'greater', conf.level = 0.95)
+# 2-sample test for equality
+# of proportions with
+# continuity correction
+# 
+# data:  c(138, 107) out of c(174, 126)
+# X-squared = 1.1845, df =
+#   1, p-value = 0.8618
+# alternative hypothesis: greater
+# 95 percent confidence interval:
+#   -0.1357535  1.0000000
+# sample estimates:
+#   prop 1    prop 2 
+# 0.7931034 0.8492063 
+# => 더 큰지 가설 검증, 영가설 채택(크지 않고 작거나 같다.)
+
+prop.test(c(138, 107), c(174, 126), conf.level = 0.95)
+# 2-sample test for equality
+# of proportions with
+# continuity correction
+# 
+# data:  c(138, 107) out of c(174, 126)
+# X-squared = 1.1845, df =
+#   1, p-value = 0.2765
+# alternative hypothesis: two.sided
+# 95 percent confidence interval:
+#   -0.14970179  0.03749599
+# sample estimates:
+#   prop 1    prop 2 
+# 0.7931034 0.8492063
+# => 같은지 가설 검증, 영가설 채택(같지 않다.)
+
+prop.test(c(138, 107), c(174, 126), alternative = 'less', conf.level = 0.95)
+# 2-sample test for equality
+# of proportions with
+# continuity correction
+# 
+# data:  c(138, 107) out of c(174, 126)
+# X-squared = 1.1845, df =
+#   1, p-value = 0.1382
+# alternative hypothesis: less
+# 95 percent confidence interval:
+#   -1.00000000  0.02354775
+# sample estimates:
+#   prop 1    prop 2 
+# 0.7931034 0.8492063 
+# => 작지 않고, 크거나 같다. 
+
+prop.test(c(138, 107), c(174, 126), alternative = 'two.sided', conf.level = 0.95)
+# 2-sample test for equality of proportions with continuity
+# correction
+# 
+# data:  c(138, 107) out of c(174, 126)
+# X-squared = 1.1845, df = 1, p-value = 0.2765
+# alternative hypothesis: two.sided
+# 95 percent confidence interval:
+#   -0.14970179  0.03749599
+# sample estimates:
+#   prop 1    prop 2 
+# 0.7931034 0.8492063 
+# => 차이가 없다.
+
+### 여러가지 검정을 해보았으나, 일관적이지 않은 결과가 나온다.
+### 이 데이터로 검정을 하는 것이 무의미 
